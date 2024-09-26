@@ -67,7 +67,18 @@ section (e.g., Tooth Growth Dataset).
 #| echo: true
 #| label: creating-a-plot
 
-plot(pressure)
+library(tidyverse)
+
+ggplot(data = ToothGrowth, 
+       mapping = aes(x = supp, y = len)) +
+  geom_boxplot() +
+  labs(x = "Supplement", y = "Length of Teeth (mm)")
+
+ToothGrowth %>% 
+  mutate(dose = as.factor(dose)) %>% 
+  ggplot(mapping = aes(x = dose, y = len)) +
+  geom_boxplot() +
+  labs(x = "Dose of Supplement (mg/day)", y = "Length of Teeth (mm)")
 ```
 
 Now, run this code chunk! You should see two side-by-side boxplots, one plot
