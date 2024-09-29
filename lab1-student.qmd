@@ -66,6 +66,11 @@ section (e.g., Tooth Growth Dataset).
 ```{r}
 #| echo: true
 #| label: creating-a-plot
+#| layout-ncol: 2
+#| fig-align: "center"
+#| fig-cap: 
+#|   - "Box Plot 1"
+#|   - "Box Plot 2"
 
 library(tidyverse)
 
@@ -95,3 +100,10 @@ should be **center aligned**.
 **Question 9** -- Specify a **figure caption** for the boxplots (using a
 code-chunk option).
 
+## Two-sided t-test
+
+```{r}
+t.test(len ~ supp, data = ToothGrowth, var.equal = FALSE)
+```
+1. Using a traditional p-value of 0.05, we reject the null hypothesis, and conclude there is no significant difference between groups. 
+2. There is 95% confidence that the true difference in average tooth length for the two supplements is between 0 and 7.6mm
