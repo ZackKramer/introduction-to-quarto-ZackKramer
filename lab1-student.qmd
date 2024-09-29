@@ -9,6 +9,9 @@ execute:
   echo: false
   output: true
   error: true
+code-fold: true
+toc: true
+theme: slate
 ---
 
 # Part Two: Exploring Quarto Documents
@@ -72,7 +75,8 @@ section (e.g., Tooth Growth Dataset).
 #|   - "Box Plot 1"
 #|   - "Box Plot 2"
 
-library(tidyverse)
+suppressMessages(library(tidyverse))
+# plot would not generate without running the library function
 
 ggplot(data = ToothGrowth, 
        mapping = aes(x = supp, y = len)) +
